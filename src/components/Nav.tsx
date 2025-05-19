@@ -5,6 +5,7 @@ import NavItem from '@ui/NavItem';
 import AccountNavItem from '@ui/AccountNavItem';
 
 import { SiTwitter } from 'react-icons/si';
+import { RiHome7Line, RiSearchLine, RiBriefcaseLine, RiCheckboxCircleFill } from 'react-icons/ri';
 import {
 	HiOutlineHome,
 	HiHashtag,
@@ -12,6 +13,7 @@ import {
 	HiOutlineEnvelope,
 	HiOutlineBookmark,
 	HiOutlineUser,
+	HiOutlineBuildingOffice2,
 } from 'react-icons/hi2';
 
 interface NavLinkItem {
@@ -24,12 +26,12 @@ const items: NavLinkItem[] = [
 	{
 		href: '/home',
 		text: 'Home',
-		icon: <HiOutlineHome className="w-6 h-6" />,
+		icon: <RiHome7Line className="w-6 h-6" />,
 	},
 	{
 		href: '/explore',
 		text: 'Explore',
-		icon: <HiHashtag className="w-6 h-6" />,
+		icon: <RiSearchLine className="w-6 h-6" />,
 	},
 	{
 		href: '/notifications',
@@ -42,9 +44,34 @@ const items: NavLinkItem[] = [
 		icon: <HiOutlineEnvelope className="w-6 h-6" />,
 	},
 	{
+		href: '/grok',
+		text: 'Grok',
+		icon: <RiSearchLine className="w-6 h-6" />,
+	},
+	{
+		href: '/premium',
+		text: 'Premium',
+		icon: <RiCheckboxCircleFill className="w-6 h-6" />,
+	},
+	{
 		href: '/bookmarks',
 		text: 'Bookmarks',
 		icon: <HiOutlineBookmark className="w-6 h-6" />,
+	},
+	{
+		href: '/jobs',
+		text: 'Jobs',
+		icon: <RiBriefcaseLine className="w-6 h-6" />,
+	},
+	{
+		href: '/communities',
+		text: 'Communities',
+		icon: <HiOutlineUser className="w-6 h-6" />,
+	},
+	{
+		href: '/verified-orgs',
+		text: 'Verified Orgs',
+		icon: <HiOutlineBuildingOffice2 className="w-6 h-6" />,
 	},
 	{
 		href: '/profile',
@@ -63,10 +90,13 @@ const Nav = () => (
 				{items.map(({ href, text, icon }, i) => (
 					<div
 						key={`header-${i}`}
-						// value={`item-${i + 1}`}
 						className="rounded-lg focus:outline-none overflow-hidden"
 					>
-						<NavItem href={href} width="inline" size="default">
+						<NavItem 
+							href={text === 'More' ? href : '/'} 
+							width="inline" 
+							size="default"
+						>
 							{icon}
 							<div className="hidden xl:inline-flex flex-none text-lg font-medium">
 								{text}
@@ -75,7 +105,21 @@ const Nav = () => (
 					</div>
 				))}
 				<PopoverDemo />
-				<DialogDemo />
+				<div className="mt-4">
+					<button 
+						className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-3 px-4 rounded-full w-full max-w-[90%] mx-auto block xl:flex items-center justify-center"
+						onClick={() => {
+							const dialogTrigger = document.getElementById('dialog-trigger');
+							if (dialogTrigger) dialogTrigger.click();
+						}}
+					>
+						<span className="hidden xl:inline">Post</span>
+						<span className="xl:hidden">+</span>
+					</button>
+				</div>
+				<div className="mt-auto">
+					<DialogDemo />
+				</div>
 			</div>
 			<div>
 				<AccountNavItem />

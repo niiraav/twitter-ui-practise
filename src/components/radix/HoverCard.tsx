@@ -27,14 +27,11 @@ const HoverCardDemo = ({
 }: Props) => (
 	<HoverCardPrimitive.Root>
 		<HoverCardPrimitive.Trigger asChild>
-			<a
-				className="ImageTrigger inline-flex h-12 w-12 items-center justify-center rounded-full overflow-hidden bg-white"
-				href="https://twitter.com/royquilor"
-				target="_blank"
-				rel="noreferrer noopener"
+			<div
+				className="ImageTrigger inline-flex h-12 w-12 items-center justify-center rounded-full overflow-hidden bg-white cursor-pointer"
 			>
 				<Avatar src={src} alt={alt} initials={initials} />
-			</a>
+			</div>
 		</HoverCardPrimitive.Trigger>
 		<HoverCardPrimitive.Portal>
 			<HoverCardPrimitive.Content

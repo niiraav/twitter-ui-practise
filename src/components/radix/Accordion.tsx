@@ -26,12 +26,12 @@ const items: AccordionItem[] = [
 		header: 'Creator Studio',
 		content: (
 			<>
-				<NavItem href="/" width="full" size="default">
+				<div className="flex items-center gap-x-4 px-4 py-3 hover:bg-slate-100 text-slate-900 my-1 w-full cursor-pointer">
 					<HiOutlineChartBarSquare className="w-4 h-4" />
 					<div className="inline-flex flex-none text-sm font-medium">
 						Analytics
 					</div>
-				</NavItem>
+				</div>
 			</>
 		),
 	},
@@ -39,24 +39,24 @@ const items: AccordionItem[] = [
 		header: 'Professional Tools',
 		content: (
 			<>
-				<NavItem href="/" width="full" size="default">
+				<div className="flex items-center gap-x-4 px-4 py-3 hover:bg-slate-100 text-slate-900 my-1 w-full cursor-pointer">
 					<HiOutlineIdentification className="w-4 h-4" />
 					<div className="inline-flex flex-none text-sm font-medium">
 						Twitter for Professionals
 					</div>
-				</NavItem>
-				<NavItem href="/" width="full" size="default">
+				</div>
+				<div className="flex items-center gap-x-4 px-4 py-3 hover:bg-slate-100 text-slate-900 my-1 w-full cursor-pointer">
 					<HiOutlineFilm className="w-4 h-4" />
 					<div className="inline-flex flex-none text-sm font-medium">
 						Twitter Ads
 					</div>
-				</NavItem>
-				<NavItem href="/" width="full" size="default">
+				</div>
+				<div className="flex items-center gap-x-4 px-4 py-3 hover:bg-slate-100 text-slate-900 my-1 w-full cursor-pointer">
 					<HiOutlineBanknotes className="w-4 h-4" />
 					<div className="inline-flex flex-none text-sm font-medium">
 						Monetization
 					</div>
-				</NavItem>
+				</div>
 			</>
 		),
 	},
@@ -64,30 +64,24 @@ const items: AccordionItem[] = [
 		header: 'Settings and Support',
 		content: (
 			<>
-				<NavItem href="/" width="full" size="default">
+				<div className="flex items-center gap-x-4 px-4 py-3 hover:bg-slate-100 text-slate-900 my-1 w-full cursor-pointer">
 					<HiOutlineCog8Tooth className="w-4 h-4" />
 					<div className="inline-flex flex-none text-sm font-medium">
 						Settings and Privacy
 					</div>
-				</NavItem>
-				<NavItem href="/" width="full" size="default">
+				</div>
+				<div className="flex items-center gap-x-4 px-4 py-3 hover:bg-slate-100 text-slate-900 my-1 w-full cursor-pointer">
 					<HiOutlineLifebuoy className="w-4 h-4" />
 					<div className="inline-flex flex-none text-sm font-medium">
 						Help Center
 					</div>
-				</NavItem>
-				<NavItem href="/" width="full" size="default">
+				</div>
+				<div className="flex items-center gap-x-4 px-4 py-3 hover:bg-slate-100 text-slate-900 my-1 w-full cursor-pointer">
 					<HiOutlineComputerDesktop className="w-4 h-4" />
 					<div className="inline-flex flex-none text-sm font-medium">
 						Display
 					</div>
-				</NavItem>
-				{/* <NavItem href="/" width="full" size="default">
-					<HiOutlineBolt className="w-4 h-4" />
-					<div className="inline-flex flex-none text-sm font-medium">
-						Keyboard shortcuts
-					</div>
-				</NavItem> */}
+				</div>
 			</>
 		),
 	},

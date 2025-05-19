@@ -8,17 +8,17 @@ interface Props {
 }
 
 const PanelItemTrends = ({ category, title, stat }: Props) => (
-	<div className="flex flex-1 items-center gap-x-2 px-4 py-3 hover:bg-slate-200">
+	<div className="flex flex-1 items-center gap-x-2 px-4 py-3 hover:bg-gray-100 transition-colors">
 		<div className="flex flex-col gap-y-1 gap-x-2 flex-1">
-			<p className="text-xs text-slate-700 font-medium">
+			<p className="text-xs text-gray-500 font-medium">
 				{category} · Trending
 			</p>
-			<p className="text-sm font-bold text-slate-900">{title}</p>
-			<p className="text-xs text-slate-700 font-medium">{stat} Tweets</p>
+			<p className="text-sm font-bold text-gray-900">{title}</p>
+			<p className="text-xs text-gray-500 font-medium">{stat} posts</p>
 		</div>
-		<div className="">
+		<div className="text-gray-500 hover:text-blue-500 hover:bg-blue-50 rounded-full p-1.5 cursor-pointer transition-colors">
 			<Link href="/">
-				<HiOutlineEllipsisHorizontal className="w-6 h-6" />
+				<HiOutlineEllipsisHorizontal className="w-5 h-5" />
 			</Link>
 		</div>
 	</div>

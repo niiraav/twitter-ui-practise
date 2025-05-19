@@ -58,17 +58,16 @@ const PopoverDemo = () => (
 			>
 				<div className="flex flex-col">
 					{items.map(({ href, text, icon }, i) => (
-						<NavItem
+						<div
 							key={`header-${i}`}
-							href={href}
-							width="full"
-							size="default"
+							className="flex items-center gap-x-4 px-4 py-3 hover:bg-slate-100 text-slate-900 my-1 w-full cursor-pointer"
+							onClick={(e) => e.preventDefault()}
 						>
 							{icon}
 							<div className="inline-flex flex-none text-lg font-medium">
 								{text}
 							</div>
-						</NavItem>
+						</div>
 					))}
 				</div>
 

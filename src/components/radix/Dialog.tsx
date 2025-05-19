@@ -1,16 +1,12 @@
 import * as DialogPrimitive from '@radix-ui/react-dialog';
-import { HiOutlineXMark, HiOutlinePencil } from 'react-icons/hi2';
+import { HiOutlineXMark } from 'react-icons/hi2';
 import TweetForm from '../TweetForm';
-import Button from '@ui/Button';
 
 const DialogDemo = () => (
 	<DialogPrimitive.Root>
 		<DialogPrimitive.Trigger asChild>
-			<div className="w-full flex justify-center xl:justify-start mt-5 appearance-none">
-				<Button size="large">
-					<HiOutlinePencil className="w-6 h-6 xl:hidden" />
-					<span className="hidden xl:flex">Tweet</span>
-				</Button>
+			<div id="dialog-trigger" className="hidden">
+				<span>Open Tweet Dialog</span>
 			</div>
 		</DialogPrimitive.Trigger>
 		<DialogPrimitive.Portal>
@@ -25,10 +21,10 @@ const DialogDemo = () => (
 					</button>
 				</DialogPrimitive.Close>
 				<DialogPrimitive.Title className="DialogTitle sr-only">
-					Tweet
+					Post
 				</DialogPrimitive.Title>
 				<DialogPrimitive.Description className="DialogDescription sr-only">
-					Make a Tweet
+					Create a post
 				</DialogPrimitive.Description>
 
 				<TweetForm width="full" />

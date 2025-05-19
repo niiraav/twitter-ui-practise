@@ -17,13 +17,13 @@ export default function Home() {
 				<meta name="viewport" content="width=device-width, initial-scale=1" />
 				<link rel="icon" href="/favicon.ico" />
 			</Head>
-			<div className="min-h-screen flex max-w-7xl mx-auto xl:grid xl:grid-cols-10 gap-5">
+			<div className="min-h-screen flex max-w-7xl mx-auto xl:grid xl:grid-cols-10 gap-0">
 				<Nav />
-				<main className="col-span-5 w-full border-x border-slate-200">
+				<main className="col-span-5 w-full border-x border-slate-200 min-h-screen">
 					<Header title="Home" />
 					<Tabs />
 				</main>
-				<aside className="col-span-3 hidden xl:flex flex-col w-[350px]">
+				<aside className="col-span-3 hidden xl:flex flex-col w-[350px] pl-8">
 					<div className="sticky top-0">
 						<Search />
 						<Panel title="What's happening" href="/">

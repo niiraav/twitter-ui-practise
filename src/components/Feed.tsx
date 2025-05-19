@@ -1,9 +1,10 @@
 import Image from 'next/image';
-import Post from '@ui/Post';
-import { ReactNode } from 'react';
+import Post, { BadgeType } from '@ui/Post';
+import { ReactNode, useState, useEffect } from 'react';
 import { Suspense } from 'react';
+import Link from 'next/link';
 
-interface PostItem {
+export interface PostItem {
 	name: string;
 	username: string;
 	content: string;
@@ -14,9 +15,10 @@ interface PostItem {
 	followers: string;
 	initials: string;
 	image?: ReactNode;
+	badge?: BadgeType;
 }
 
-const items: PostItem[] = [
+export const items: PostItem[] = [
 	{
 		name: 'Jane Doe',
 		username: 'janedoe',
@@ -29,7 +31,7 @@ const items: PostItem[] = [
 		src: 'https://images.unsplash.com/photo-1511485977113-f34c92461ad9?ixlib=rb-1.2.1&w=128&h=128&dpr=2&q=80',
 		initials: 'JD',
 		image: (
-			<div className="w-full relative -z-10 h-80 mb-4">
+			<div className="w-full relative h-80 mb-4">
 				<Image
 					fill={true}
 					style={{ objectFit: 'cover' }}
@@ -131,45 +133,91 @@ const items: PostItem[] = [
 	},
 ];
 
-const Feed = () => (
-	<Suspense fallback={<Loading />}>
-		<ul className="[&_p:last-child]:text-slate-500 [&_p:first-child]:text-lg divide-y divide-slate-200">
-			{items.map(
-				(
-					{
-						name,
-						username,
-						content,
-						date,
-						src,
-						initials,
-						image,
-						following,
-						followers,
-						description,
-					},
-					i,
-				) => (
-					<li key={`username-${i}`} className="p-4">
-						<Post
-							name={name}
-							username={username}
-							content={content}
-							date={date}
-							src={src}
-							initials={initials}
-							description={description}
-							followers={followers}
-							following={following}
-						>
-							{image}
-						</Post>
-					</li>
-				),
-			)}
-		</ul>
-	</Suspense>
-);
+// Badge types for random generation
+const badgeTypes: (BadgeType['type'])[] = [
+	"ripe-to-reply",
+	"engage-now",
+	"community-building",
+	"hot-topics",
+	"insightful-conversations",
+	null
+];
+
+const Feed = () => {
+	// State to hold posts with badges
+	const [postsWithBadges, setPostsWithBadges] = useState<PostItem[]>(items);
+	// State to track if we're on the client
+	const [isClient, setIsClient] = useState(false);
+
+	// Generate random badges only on the client side
+	useEffect(() => {
+		setIsClient(true);
+		
+		// Function to generate random badges for posts
+		const generateRandomBadges = () => {
+			return items.map(item => {
+				// Randomly select a badge type or null
+				const randomIndex = Math.floor(Math.random() * badgeTypes.length);
+				const badgeType = badgeTypes[randomIndex];
+
+				return {
+					...item,
+					badge: badgeType ? { type: badgeType } : undefined
+				};
+			});
+		};
+
+		// Update posts with random badges
+		setPostsWithBadges(generateRandomBadges());
+	}, []); // Empty dependency array means this runs once after mount
+
+	return (
+		<Suspense fallback={<Loading />}>
+			<ul className="[&_p:last-child]:text-slate-500 [&_p:first-child]:text-lg divide-y divide-slate-200">
+				{postsWithBadges.map(
+					(
+						{
+							name,
+							username,
+							content,
+							date,
+							src,
+							initials,
+							image,
+							following,
+							followers,
+							description,
+							badge
+						},
+						i,
+					) => (
+						<li key={`username-${i}`} className="p-4 hover:bg-slate-50 transition-colors cursor-pointer relative">
+							<Link href={`/post/${username}/${i}`}>
+								<div>
+									<Post
+										name={name}
+										username={username}
+										content={content}
+										date={date}
+										src={src}
+										initials={initials}
+										description={description}
+										followers={followers}
+										following={following}
+										// Only show badges on the client side
+										badge={isClient ? badge : undefined}
+									>
+										{image}
+									</Post>
+								</div>
+							</Link>
+						</li>
+					),
+				)}
+			</ul>
+		</Suspense>
+	);
+};
 
 export default Feed;
 

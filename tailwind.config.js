@@ -9,6 +9,13 @@ module.exports = {
         default: ["var(--font-mona-sans)", ...fontFamily.sans],
         sans: ["var(--font-mona-sans)", ...fontFamily.sans],
       },
+      colors: {
+        'twitter-purple': '#9c59b6',
+        'twitter-darkGray': '#15202b',
+        'twitter-extraLightGray': '#e1e8ed',
+        'twitter-blue': '#1DA1F2',
+        'twitter-green': '#17BF63'
+      },
     },
   },
   corePlugins: {

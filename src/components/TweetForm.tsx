@@ -7,6 +7,8 @@ import {
 	RiChatPollLine,
 	RiEmotionLine,
 	RiMapPin2Line,
+	RiCalendarLine,
+	RiListCheck2,
 } from 'react-icons/ri';
 
 import { cva } from 'class-variance-authority';
@@ -39,29 +41,37 @@ function TweetForm({ width }: { width: 'default' | 'full' }) {
 						value={input}
 						onChange={(e) => setInput(e.target.value)}
 						type="text"
-						placeholder="What's up?"
+						placeholder="What's happening?"
 						className="w-full px-4 py-3 text-xl border-transparent placeholder:text-slate-600 outline-0 focus:outline-none appearance-none focus:ring-0 focus:border-transparent"
 					/>
 				</div>
 				<div className="flex justify-between items-center">
 					<div className="flex items-center gap-x-4 px-4">
-						<Link href="/">
+						<Link href="/" className="text-blue-500 hover:bg-blue-50 p-2 rounded-full transition-colors">
 							<RiImage2Line className="w-5 h-5" />
 							<span className="sr-only">Image</span>
 						</Link>
-						<Link href="/">
+						<Link href="/" className="text-blue-500 hover:bg-blue-50 p-2 rounded-full transition-colors">
 							<RiFileGifLine className="w-5 h-5" />
 							<span className="sr-only">Gif</span>
 						</Link>
-						<Link href="/">
+						<Link href="/" className="text-blue-500 hover:bg-blue-50 p-2 rounded-full transition-colors">
 							<RiChatPollLine className="w-5 h-5" />
 							<span className="sr-only">Poll</span>
 						</Link>
-						<Link href="/">
+						<Link href="/" className="text-blue-500 hover:bg-blue-50 p-2 rounded-full transition-colors">
 							<RiEmotionLine className="w-5 h-5" />
 							<span className="sr-only">Emoji</span>
 						</Link>
-						<Link href="/">
+						<Link href="/" className="text-blue-500 hover:bg-blue-50 p-2 rounded-full transition-colors">
+							<RiCalendarLine className="w-5 h-5" />
+							<span className="sr-only">Schedule</span>
+						</Link>
+						<Link href="/" className="text-blue-500 hover:bg-blue-50 p-2 rounded-full transition-colors">
+							<RiListCheck2 className="w-5 h-5" />
+							<span className="sr-only">List</span>
+						</Link>
+						<Link href="/" className="text-blue-500 hover:bg-blue-50 p-2 rounded-full transition-colors">
 							<RiMapPin2Line className="w-5 h-5" />
 							<span className="sr-only">Tag location</span>
 						</Link>
@@ -69,9 +79,9 @@ function TweetForm({ width }: { width: 'default' | 'full' }) {
 					<div>
 						<button
 							disabled={!input}
-							className="inline-flex items-center font-bold rounded-full border px-4 py-2 text-sm bg-slate-900 text-white border-transparent disabled:opacity-50 transition-opacity duration-200"
+							className="inline-flex items-center font-bold rounded-full border px-5 py-2 text-sm bg-blue-500 hover:bg-blue-600 text-white border-transparent disabled:opacity-50 transition-colors duration-200"
 						>
-							Tweet
+							Post
 						</button>
 					</div>
 				</div>
